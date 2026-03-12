@@ -22,16 +22,6 @@ target while being minimally redundant with each other.
 
 ---
 
-## Installation
-
-```bash
-pip install hsic-lasso-selector
-```
-
-> **Note:** `pyHSICLasso` is installed automatically as a dependency.
-
----
-
 ## Quick start
 
 ```python
