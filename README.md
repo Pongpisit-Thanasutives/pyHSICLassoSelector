@@ -11,17 +11,6 @@ target while being minimally redundant with each other.
 
 ---
 
-## Why HSIC Lasso?
-
-| Method | Redundancy removal | Non-linear deps | sklearn compatible |
-|---|---|---|---|
-| ANOVA / χ² (filter) | ✗ | ✗ | ✓ |
-| Mutual information | ✗ | ✓ | ✓ |
-| RFE | partial | model-dependent | ✓ |
-| **HSIC Lasso** | **✓** | **✓** | **✓** (this package) |
-
----
-
 ## Quick start
 
 ```python
@@ -141,14 +130,6 @@ git clone https://github.com/yourname/hsic-lasso-selector
 cd hsic-lasso-selector
 pip install -e ".[dev]"
 pytest tests/ -v --cov=hsic_lasso_selector
-```
-
-### Build & publish to PyPI
-
-```bash
-python -m build
-twine check dist/*
-twine upload dist/*
 ```
 
 ---
