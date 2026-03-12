@@ -1,0 +1,103 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+# ---------------------------------------------------------------------------
+# Project metadata  (PEP 621)
+# ---------------------------------------------------------------------------
+[project]
+name = "hsic-lasso-selector"
+version = "0.1.0"
+description = "Scikit-learn compatible feature selector based on HSIC Lasso (pyHSICLasso wrapper)"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [
+    { name = "Your Name", email = "you@example.com" },
+]
+keywords = [
+    "feature selection",
+    "HSIC",
+    "HSIC Lasso",
+    "machine learning",
+    "scikit-learn",
+    "dimensionality reduction",
+    "kernel methods",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+requires-python = ">=3.9"
+
+dependencies = [
+    "numpy>=1.23",
+    "scikit-learn>=1.1",
+    "pyHSICLasso>=1.4",
+]
+
+[project.optional-dependencies]
+# Extra convenience for notebooks / interactive exploration
+plot = [
+    "matplotlib>=3.6",
+]
+# Full development + test suite
+dev = [
+    "pytest>=7",
+    "pytest-cov>=4",
+    "pandas>=1.5",          # for DataFrame round-trip tests
+    "matplotlib>=3.6",
+    "ruff>=0.4",
+    "mypy>=1.0",
+    "build",
+    "twine",
+]
+
+[project.urls]
+Homepage       = "https://github.com/yourname/hsic-lasso-selector"
+Documentation  = "https://github.com/yourname/hsic-lasso-selector#readme"
+Repository     = "https://github.com/yourname/hsic-lasso-selector"
+"Bug Tracker"  = "https://github.com/yourname/hsic-lasso-selector/issues"
+
+# ---------------------------------------------------------------------------
+# Package discovery
+# ---------------------------------------------------------------------------
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+# ---------------------------------------------------------------------------
+# Ruff (linter + formatter)
+# ---------------------------------------------------------------------------
+[tool.ruff]
+line-length = 99
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "C4", "RUF"]
+ignore  = ["E501"]
+
+# ---------------------------------------------------------------------------
+# Mypy
+# ---------------------------------------------------------------------------
+[tool.mypy]
+python_version = "3.9"
+strict = false
+ignore_missing_imports = true
+
+# ---------------------------------------------------------------------------
+# Pytest
+# ---------------------------------------------------------------------------
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts   = "-v --tb=short"
